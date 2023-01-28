@@ -1,4 +1,3 @@
-import numpy as np
 import pandas as pd
 import pickle
 from sklearn.model_selection import train_test_split
@@ -20,7 +19,8 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 n_trees = 100
 clf = RandomForestClassifier(
-    n_estimators=n_trees, oob_score=True,
+    n_estimators=n_trees,
+    oob_score=True,
 )
 
 clf.fit(X_train, y_train)
@@ -34,5 +34,5 @@ print(
 )
 
 model_save_path = "./models/toy-model.pkl"
-with open(model_save_path, 'wb') as file:
+with open(model_save_path, "wb") as file:
     pickle.dump(clf, file)

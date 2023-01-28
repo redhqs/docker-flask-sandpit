@@ -1,7 +1,7 @@
 import pickle
 
 model_save_path = "./models/toy-model.pkl"
-with open(model_save_path, 'rb') as file:
+with open(model_save_path, "rb") as file:
     clf = pickle.load(file)
 
 # test iris
