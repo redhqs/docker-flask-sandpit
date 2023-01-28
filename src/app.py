@@ -3,11 +3,12 @@ import pickle
 from numpy import array2string
 
 model_save_path = "./models/toy-model.pkl"
-with open(model_save_path, 'rb') as file:
+with open(model_save_path, "rb") as file:
     clf = pickle.load(file)
 
 # define app
 app = Flask(__name__)
+
 
 # define functions to be called
 @app.route("/score", methods=["POST", "GET"])
@@ -18,6 +19,7 @@ def predict_species():
     flower.append(request.args.get("sepal_length"))
     flower.append(request.args.get("sepal_width"))
     return array2string(clf.predict([flower]))
+
 
 # define main
 if __name__ == "__main__":
